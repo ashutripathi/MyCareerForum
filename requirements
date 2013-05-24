@@ -1,0 +1,594 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+Application Requirement specification
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Document Revision History
+
+
+Version Revision  Date	Author (s)	Reviewer (s)	Description
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Content
+
+1. Business Overview----------------------------------------------------------------------------------------4
+2. System Overview------------------------------------------------------------------------------------------4
+3. Key functionalities (based on role)………………………………………………………………………………..4
+4. Use case specification………………………………………………………………………………………………….6
+5. Use case description……………………………………………………………………………………………………6
+6. Functional requirements………………………………………………………………….,………………………..12
+7. Common UI requirements……………………………………………..…………………………………………..13
+8. Reports display………………………………………………………………………………………………………….14
+9. Technical requirement……………………………………………………………………………………………….14
+10. User authentication…………………………………………………………………………….……………………15
+11. Logging requirement………………………………………………………………………………………………..15
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Business Overview:
+
+The Education & Research team of MYCompany BPO is a part of MYCompany BPO HRD and the custodian of JL 2, JL3 and JL4 behavioral skills training across Indian and International centers. Besides training, MYCompany BPO E&R also manages several CSR initiatives, competency workshops and International training projects. Training is necessary to develop the skill sets in order that MYCompany BPO personnel perform their roles adequately and with competence. Ongoing trainings can be remedial or value-add in nature and can take any of the following forms: 
+
+•	Competency based Training (CBT): These programs are designed to equip an individual with skills to differentiate work in a manner that adds value to him/her professionally as well as to the customer. CBT can take any of the following forms: Instructor led training, self-paced learning, e learning, webinar, Webex based training, video conference based trainings and net meeting based training or a combination of any of these. Several Prescriptive and Mandatory programs have been developed based on competencies identified by the organization for JL2, JL3 and JL4 employees.
+•	Intervention training: Any training that is conducted either due to a client request or as a proactive measure, other than CBT programs is an Intervention. Training may be initiated by the floor if it is remedial in nature, triggered off by performance and quality data or initiated by training team as a continuous training initiative, or post a training need analysis on the floor.
+•	Off-the-Shelf programs: These programs cater to skills beyond the prescribed set of skills expected of employees by MYCompany BPO. The triggers to the creation and delivery of these programs could be situational needs, utilization of an in-house trainer’s expertise in delivering an acclaimed program offered outside the organization, catering to a tenured audience that has already completed the standard set of trainings or a publicity initiative for the team.
+•	Training Domain Certification: This program helps enhance facilitation skills and training functional knowledge of trainers across streams in MYCompany BPO. It operates under the banner of IBPO Trainers Forum and has two levels certification -T100 – Basic Level and T200 – Advanced level
+
+2. System Overview:
+
+The system has to be developed to track the pre/post assessments and feedback. As per the current process, assessments and feedback are collated manually.  Developing a system to automate the aforementioned activities will help us in reducing time/cost/manual errors and ensuring authenticity of the reports. 
+
+The main objectives are as follows:
+•	To develop a tool that is employee friendly and can be accessed by all JL2, JL3 and JL4 employees operating out of operations floor
+•	To display all information in a logical manner on web based screens
+•	To eliminate manual processing and improve efficiency
+•	To explore the feasibility of deploying this tool on cloud
+
+3. Key functionalities (based on role)
+
+3.1 Role of Administrator
+
+Program Details: Should have the access to create/edit/delete/hide/upload the program details. The program details include:
+•	Name of the program 
+•	Name of the trainer
+•	Start Date
+•	End Date
+•	Total days of training
+•	No: of hours of training
+•	No: of people attended the training
+•	Expected level of proficiency increase
+•	Venue
+•	Timings
+•	Training Type
+•	Pre assessment
+•	Post assessment
+•	Feedback
+•	Location
+Employee Details: Should have the access to create/edit/delete/hide/upload employee details
+•	Employee number
+•	Assessment scores
+
+3.2 Role of Educator:
+
+Program Details: Should have the access to edit the following details:
+•	Name of the program 
+•	Name of the trainer
+•	Start Date
+•	End Date
+•	Total days of training
+•	No: of hours of training
+•	No: of people attended the training
+•	Expected level of proficiency increase
+•	Venue
+•	Timings
+•	Training Type
+•	Location
+Employee Details: Only for Interventions where the trainer conducts the assessments
+•	Employee Number
+•	Pre/Post assessment scores
+
+3.3 Role of Employee:
+
+Program details: The employees will be able to view the program details like name of the program, date, venue, location and timings. They should have the access to the following:
+Pre Assessment
+Post Assessment & Feedback
+
+4. Use Case Specification
+
+4.1 Actor catalog
+
+Sl No:	Actor	Description
+1	Administrator	Employee who maintain the trackers and analyze the data
+2	Educator	Employee (s) who conducts training programs
+3	Employee	Employees who registered/nominated to attend the training programs
+
+4.2 Use case catalog
+
+Sl No:	Use case	Complexity	Priority
+1	Program details 	Low	High
+2	Employee details	Low	High
+2	Pre/Post Assessment	Low	High
+4	Feedback	Low	High
+
+5. Use case description
+
+5.1. Login
+
+Description	This is the authentication used for accessing the application
+Actors	Administrator, Educator
+Pre-condition	Administrator and Educator should be registered Employees
+Post-condition	The system displays the respective home page based on the actor
+Business rules	•	User Id must be the employee number
+•	The User Id and password must be valid
+•	The system should ask the actor to change the password if they are logging in for the first time
+Assumptions	Assuming that multiple Employees can access the link at the same time.
+
+5.2. Change password
+ 
+Description	To change the password
+Actors	Administrator, Educator
+Pre-condition	Administrator and Educator should be logged in 
+Post-condition	The system displays the message, password changed successfully. Actors can now use the password to successfully log in to the system.
+Business rules	•	The actors can change only his/her password
+•	Actor should provide old and new password at the time of changing the password
+•	Password should have minimum 6 characters and maximum 8 characters
+•	Administrator can reset the password
+•	The system should ask the actor to change the password if they are logging in for the first time
+Assumptions	Assuming that multiple Employees can access the link at the same time. 
+
+5.3. Name of the program 
+
+Description	Training programs planned for a particular month
+Actors	Employee, Administrator, Educator
+Pre-condition	Click on the program name and the date 
+Post-condition	Employee: The Employee should click on the ‘start date’ link
+Administrator: Should have the access to create/edit/delete/hide/upload the program details
+Educator: Should have the access to edit the program details
+Business rules	•	By clicking on the ‘name of the program’ link the employee should click on ‘start date’ link
+•	Educators and Administrator should not leave this space blank
+Assumptions	Assuming that multiple Employees can access the link at the same time
+
+5.4. Start Date
+
+Description	The date on which the training starts
+Actors	Employee, Administrator, Educator
+Pre-condition	Administrator: Type/Calendar option to create offering
+Educator: Option to edit, (Type/calendar option)
+Employee: Click on the ‘start date’ link to take up pre assessments
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the start date
+Educator: Should have the access to edit the ‘start date’
+Employee: Click on ‘Pre- assessment’ link
+Business rules	By clicking on the ‘start date’ link the employee can take up the pre-assessments
+Educator must mention the ‘start date’. Do not leave the space black.
+Assumptions	Assuming that multiple Employees can access the link at the same time 
+
+5.5. End date
+
+Description	The date on which the training ends
+Actors	Administrator, Educator
+Pre-condition	Administrator: Type/Calendar option to create offering
+Educator: Option to edit, (Type/calendar option)
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the date
+Educator: Should have the access to edit the ‘end date’
+Business rules	Educator must mention the ‘end date’. Do not leave the space black.
+Assumptions	Assuming that multiple Employees can access the link at the same time
+
+5. 6. Pre assessment 
+
+Description	Employees are assessed to check their knowledge level before attending the training program
+Actors	Employee, Administrator, Educator
+Pre-condition	Employee: Click on Pre assessment link to take up the assessment. It is mandatory to update the employee number and to answer all the questions. The link will expire post ‘Save’ and ‘Submit’. 
+Administrator:  Should have the option to upload the pre assessment sheets & answers (It is a one-time activity for programs which are on I Lite+). 
+Educator: Should be able to view the list of the employee numbers and pre-assessment scores (the fields must be frozen) and can edit the field ‘Present (P)’ or ‘Absent (A)’. 
+Post-condition	Employee: The pre-assessment link will be active till 1 hour after starting the training. 
+Administrator: Should have the access to create/edit/delete/hide/upload the pre assessment questions and answers, ‘Present/Absent’ option, ‘Maximum Marks’ field. 
+Educator: Should have the access to edit ‘Present/Absent’ option, ‘Maximum Marks’ fields. After updating Present/Absent and Max marks, they will have to ‘Save’ the file and ‘Submit’
+
+Business rules	Before attending the training an employee can view only the pre assessment link
+The employee must take up the pre-assessment
+An employee cannot take the assessment with the same employee number more than once.
+Assumptions	Assuming that multiple Employees can access the link at the same time. The Answers must be automatically corrected based on the answer sheet uploaded by the Administrator
+
+5.7. Present/Absent
+
+Description	Employee who will be present/absent for the training after taking up the pre assessment
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to update ‘Present/Absent’ from backend
+Educator: Option to update ‘Present/Absent’ against the name of the employees who took the pre assessment. This field should not be left blank
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the details
+Educator: Sheet to be saved
+Business rules	It  is mandatory for the Educator to mark the employee ‘present/absent’
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+5.8. Maximum Marks 
+
+Description	Maximum marks for assessments
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to update the details from backend
+Educator: Option to update the details
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the details
+Business rules	It  is mandatory for the Educator to mark the employee ‘present/absent’
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+5.9. Name of the educator
+
+Description	Educator who will be conducting the training
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to add names from back end
+Educator: Option to choose their name with the help of a drop down option
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the name
+Business rules	It  is mandatory for the Educator to choose their name
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+
+5.10. Timings
+
+Description	Duration of the training
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to update the details from backend (24 hour format ,drop down/Manual)
+Educator: Option to update the details (24 hour format ,drop down/Manual)
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the data
+Business rules	It is mandatory for the Educator to mention the duration in 24 hour format. This field should not be left blank.
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+5.11. Total days of training
+
+Description	Training duration in terms of the total number of days. 
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to update the details from backend
+Educator: Option to update the details
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the data
+Business rules	It is mandatory for the Educator to mention the duration. This field should not be left blank
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+5.12. No: of hours of training
+
+Description	Training duration in terms of the total number of hours
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to update the details from backend
+Educator: Option to update the details
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the data
+Business rules	It is mandatory for the Educator to mention the duration. This field should not be left blank
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+5.13. No: of employees attending the training 
+
+Description	No: of people mentioned as ‘Present’ for each of the program
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to update the details from backend
+Educator: Option to update the filed on the basis of employees ‘present’ for the program
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the data
+Business rules	It is mandatory for the Educator to mention the total number. This field should not be left blank
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+5.14. Training Type
+
+Description	The training should fall under the category-CBT, Intervention, PCC, Off the shelf, Floor Coaching
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to update the details from backend
+Educator: Drop down option to choose the training type
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the data
+Business rules	It is mandatory to mention the training type. This field should not be left blank.
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+5.15. Type of intervention
+
+Description	There are two types of interventions, Reactive- initiated by the operations team and Proactive- Initiated by the E&R team
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to update the details from backend
+Educator: Drop down option to choose ‘reactive’ or ‘proactive’
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the data
+Business rules	It is mandatory to mention whether the intervention is ‘proactive’ or ‘reactive’. This field should not be left blank.
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+5.16. Expected level of proficiency increase
+
+Description	This is applicable only for interventions
+Actors	Administrator, Educator
+Pre-condition	Administrator: Option to update the details from backend
+Educator: Option to update the figure (in %)/NA
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the data
+Business rules	Expected proficiency is not mandatory for all interventions. Hence can also mention ‘NA’
+Assumptions	Assuming that multiple Employees can access the link at the same time. ‘Employee’ will not have the access to view the same.
+
+5.17. Venue
+
+Description	Place where the training has been conducted
+Actors	Employee, Administrator, Educator
+Pre-condition	Employee: Will be able to view the venue
+Administrator: Option to update the details from backend
+Educator: Edit the venue details. Manual entry of data.
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the data
+Business rules	It is mandatory to mention the venue. This field should not be left blank.
+Assumptions	Assuming that multiple Employees can access the link at the same time. 
+
+5.18. Location
+
+Description	Location of training
+Actors	Employee, Administrator, Educator
+Pre-condition	Employee: Will be able to view the location 
+Administrator: Option to update the details from backend
+Educator: Edit the location details. Drop down option.
+Post-condition	Administrator: Should have the access to create/edit/delete/hide the data
+Business rules	It is mandatory to mention the Location. This field should not be left blank.
+Assumptions	Assuming that multiple Employees can access the link at the same time. 
+
+
+
+5.19. Assessment by Educator
+
+Description	For some of the interventions assessments are conducted by the educators and not taken by the Employee (Drop down option ‘Yes’ or ‘No’)
+Actors	Administrator, Educator
+Pre-condition	Administrator & Educator: Should have the access to create/edit/delete/hide/upload ‘Employee number’, ‘pre assessment marks’, ’Assessment max marks’, ‘Present(P)/Absent(A)
+Post-condition	Administrator & Educator: There will be 3 options ‘Save’, ‘Set Feedback’ and ‘Submit’
+The educator should click on all the 3.
+Business rules	Educator should be given the option to Edit all the fields, if they  select ‘yes’ as an option for this field
+Feedback link will be active for those employee numbers marked as ‘Present(P)’ by the educator
+Assumptions	Assuming that multiple Employees can access the link at the same time. 
+Feedback will be tracked as per the questions
+
+20. Post assessment & Feedback
+
+Description	Employees are assessed to check their knowledge level after attending the training program. To take up post assessments, there are 2 rules:
+1. Employee must take up pre assessment
+2. Employee must be marked present by the Educator
+Actors	Employee, Administrator
+Pre-condition	Employee: Click on ‘Name of the program’, ‘Start date’ and ‘Post assessment & Feedback’ link to take up the assessment. It is mandatory to update the employee number and to answer all the questions. 
+Administrator:  Should have the option to upload the post assessment sheets & answers  and Feedback sheet (It is a one-time activity for programs which are on I Lite+)
+Post-condition	Employee:  Saving ‘Post assessment’ sheet will take you to ‘feedback sheet’.  ‘Save’ and ‘Submit’ the form. 
+Administrator: Should have the access to create/edit/delete/hide/upload the post assessment questions and answers
+Business rules	Employee should be able to view only the ‘post-assessment & feedback’ link
+The employee must take up the pre-assessment to be able to view the ‘post assessment & feedback’ link
+ An employee cannot take the assessment with the same employee number more than once.
+Assumptions	Assuming that multiple Employees can access the link at the same time. 
+The Answers must be automatically corrected based on the answer sheet uploaded by the Administrator
+Feedback must be tracked as per the questions
+
+21. Feedback
+
+Description	Feedback  about the program
+Actors	Employee, Administrator
+Pre-condition	Employee: Click on ‘Name of the program’, ‘Start date’ and ‘Feedback’. It is mandatory to update the employee number and to answer all the questions. 
+Administrator: Should have the access to create/edit/delete/hide/upload
+Post-condition	Employee:   ‘Save’ and ‘Submit’  feedback form
+Business rules	Employee should be able to view only the Feedback link
+An employee cannot take the assessment with the same employee number more than once.
+Assumptions	Assuming that multiple Employees can access the link at the same time. 
+Feedback will be tracked as per the questions
+
+6. Functional requirements
+
+The respective home page is displayed to all the Employees. On the home page they have different links to access the application:
+•	Employee
+•	Educator
+•	Administrator
+6.1 Navigation
+
+All pages cannot be accessed by all the Employees. Administrator & Educator can only access their links with the log in & password.
+
+6.2 Actions
+
+Every Employee has a set of access privilege. Please refer the below table:
+
+Sl No	Use Case	Employee	Educator	Administrator
+1	Login	X				
+2	Change Password	X				
+3	Name of the program						
+4	Start Date						
+5	End Date						
+6	Pre Assessment			X		
+7	Present/Absent	X				
+8	Maximum Marks	X				
+9	Name of the educator	X				
+10	Timings						
+11	Total days of training	X				
+12	No: of hours of training	X				
+13	No: of employees attending the training	X				
+14	Training Type	X				
+15	Type of intervention	X				
+16	Expected level of proficiency increase	X				
+17	Venue						
+18	Location						
+19	Assessment by Educator	X				
+20	Post Assessment & Feedback						
+21	Feedback						
+
+
+
+6.3 Event flow
+•	All the employees can access the Pre assessment link before the training
+•	Educator and Administrator can log in to the link only with the user id (employee number) and password
+Links are present to the pages to which Educator and Administrator have the access
+•	Educator and Administrator should log out post the use
+6.4 Error or Warning messages
+
+Sl No	Use Case	Error/Warning messages	Error/Warning condition
+1	Login	Incorrect ‘Employee Number’	Unauthorized personnel trying to log in to ‘Educator’ and ‘Administrator’ links
+2	Change Password	Less than 6 characters	Minimum 6 characters for the password and maximum 8 characters
+3	Pre Assessment	Cannot ‘Save’ the sheet without updating all the fields	Employee number to be updated, all the questions should be answered
+4	Present/Absent	‘P’ or ‘A’- Field should not be left blank	Employee should be either marked ‘P’ or ‘R’
+5	Maximum Marks	Field should not be left blank	If the ‘Maximum Mark’ is not applicable, select ‘NA’
+6	Timings	24 hours format (00:00)	The figures should not be accepted without 24 hours format
+7	No: of hours of training	24 hours format (00:00)	The figures should not be accepted without 24 hours format
+8	Expected level of proficiency increase	Number should be in %	This field should not be left blank. If the proficiency level is not applicable, mention ‘NA’
+9	Assessment by Educator	Select ‘Yes’ or ‘No’	This field should not be left blank
+10	Post Assessment & Feedback	Cannot ‘Save’ the sheet without updating all the fields	Employee number to be updated, all the questions should be answered
+11	Feedback	Cannot ‘Save’ the sheet without updating all the fields	Employee number to be updated, all the questions should be answered
+
+All the fields must be updated as per the access authority (Employee, Educator, and Administrator). If any field is left blank the concerned authority will not be able to ‘Save’ and ‘Submit’ the form.
+
+7. Common UI requirements
+
+URL link to the tool or an option to make it a part of Panorama (intranet)
+The following requirements are applicable for all the screens:
+1.	The look and feel of all screens should be consistent across the application
+2.	In search screens, if filter criteria is not specified (other than mandatory values), search result should contain all values from database
+3.	Following values should be populated on the screen by default based on user information on log in screen
+•	Employee- Employee Home
+•	Educator-Educator Home
+•	Administrator- Administrator Home
+4.	If the user has changed the value, then the new value should be prepopulated on all further screens within the browser session
+5.	The new screen will open up in the same window
+6.	The date format should be entered as per the built-in calendar
+7.	The employee number field should contain digits only
+8.	All fields with List of values or LOV’s (Dropdowns) should allow only choosing value from drop down.  It should not allow any manual entry
+9.	All mandatory fields should be suitably highlighted (*)
+10.	For non-mandatory field, blank values should not be permitted.
+11.	A ‘Help’ pane to be included in ‘Educator Home’ and ‘Administrator Home’ and upload the user guide in form of a PPT with screen shots
+8. Reports display
+
+The following requirements are applicable to all screens which contain report display:
+
+1. The report table structure should be uniform across all screens
+2. Date field should be in a specified format
+
+8.1 Success/Error/Warning message
+
+For every user action, a suitable success/error/warning message should be displayed on the screen. Errors and warnings are displayed as per the mandatory fields.
+
+1. The message should be consistent across all screens
+2. Location of error message
+a)	The required converter and validator messages can be displayed in the column next to the bound field or bottom of the page
+b)	For Search query screens-Below the search criteria section (in the search results pane)
+
+9. Technical requirements
+
+9.1 Browser requirements
+
+1. Right click must be disabled
+2. Screen width must be fixed dimension and not re-sizable
+
+9.2 Security requirements
+1.	‘Educator’ and ‘Administrator’ must be logged on and authorized before they can take any action in the system
+2.	Password should be at least 6 characters
+3.	Password should not be the same as the employee ID or should not be left blank
+4.	User cannot reuse their previous password, while entering the new password
+10. User Authentication
+
+10.1 Access validation
+
+Depending on the login username, the access validation routine will check the following:
+•	Educator
+•	Administrator
+10.2 User session expiry
+•	The application session will expire, by default after 30 minutes of inactivity. 
+•	User will have to log in again for the access (applicable only for ‘Educator’ and ‘Administrator’
+10.3 Single user logon
+•	No user will be allowed to log in simultaneously from 2 PC’s.
+11. Logging requirements
+
+11.1 Audit trail
+
+Has to be maintained for all actions taken by the user. This is maintained by an activity log file where all actions taken by a user can be stored and consolidated for reporting
+
+11.2 Server log
+
+The output of application server should be captured and stored in a file
+
+11.3 Alarm log
+•	System should log all fatal/error condition in a log file in the following format:
+•	DD-MMM-YYYY HH: MM: SS.SS ClassName: Method Name
+11.4 Transaction volumes
+The below table shows the average number of users and daily volume requirements:
+Item	Description	Statistics
+No: of users	Employee	200
+	Educator	35
+	Administrator	10
+Daily volumes	Maximum number of transactions	7000
+
+11.5 Growth
+
+We will have to check the feasibility of deploying the tool on Cloud and panorama (intranet-IBPO). 
+The volumes will increase by 10% annually. 
+This will be launched in IDC’s as well
+
